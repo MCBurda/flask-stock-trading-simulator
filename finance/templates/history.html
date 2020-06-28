@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    History of all transactions
+{% endblock %}
+
+{% block main %}
+    <div class="row mb-3 justify-content-center">
+      <h2>Transaction History:</h2>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Company name:</th>
+          <th scope="col">Company ticker symbol:</th>
+          <th scope="col">Transaction Type:</th>
+          <th scope="col">Transaction Date:</th>
+          <th scope="col">Price:</th>
+          <th scope="col">Shares:</th>
+          <th scope="col">Value of Holdings:</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for record in transactions %}
+          <tr>
+            <th scope="row">{{ loop.index0 + 1 }}</th>
+            <td>{{ record["name"] }}</td>
+            <td>{{ record["symbol"] }}</td>
+            <td>{{ record["type"] }}</td>
+            <td>{{ record["datetime"] }}</td>
+            <td>{{ record["price"] }}</td>
+            <td>{{ record["shares"] }}</td>
+            <td>{{ values[record["symbol"]] }}</td>
+          </tr>
+        {% endfor %}
+
+        <tr class="totals">
+          <th scope="row">Total Transaction Volume:</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ total }}</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+{% endblock %}

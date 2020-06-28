@@ -1,0 +1,65 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Dashboard
+{% endblock %}
+
+{% block main %}
+    <div class="row mb-3 justify-content-center">
+      <h2>Dashboard:</h2>
+    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Company name:</th>
+          <th scope="col">Company ticker symbol:</th>
+          <th scope="col">Price:</th>
+          <th scope="col">Shares:</th>
+          <th scope="col">Value of Holdings:</th>
+        </tr>
+      </thead>
+      <tbody>
+
+        {% for key in holdings %}
+        <tr>
+          <th scope="row">{{ loop.index0 + 1 }}</th>
+          <td>{{ names[key] }}</td>
+          <td>{{ key }}</td>
+          <td>{{ prices[key] }}</td>
+          <td>{{ holdings[key] }}</td>
+          <td>{{ values[key] }}</td>
+        </tr>
+        {% endfor %}
+
+        <tr class="stocks">
+          <th scope="row">Total Stock Value:</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ total }}</td>
+        </tr>
+
+        <tr class="cash">
+          <th scope="row">Total Cash:</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ cash }}</td>
+        </tr>
+
+        <tr class="totals">
+          <th scope="row">Total Net Worth:</th>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td>{{ net_worth }}</td>
+        </tr>
+
+      </tbody>
+    </table>
+
+{% endblock %}

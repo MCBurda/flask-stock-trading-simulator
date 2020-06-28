@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell a Stock
+{% endblock %}
+
+{% block main %}
+    <div class="row justify-content-center">
+        <form action="/sell" method="POST">
+          <div class="col-12 form-group mb-4">
+            <h4 id="sellHeading" ><strong>Sell a stock:</strong></h4>
+          </div>
+          <div class="col-12 form-group">
+              <select name="symbol" type="text" class="form-control" id="symbolInput" aria-describedby="stockSymbolToSell" required>
+                  <option value="" selected="selected" disabled>Pick a stock symbol</option>
+                  {% for stock in stocks %}
+                  <option>{{ stock }}</option>
+                  {% endfor %}
+              </select>
+              <small id="sellHelp" class="form-text text-muted">Choose a symbol of a stock that you hold and want to sell.</small>
+          </div>
+          <div class="col-12 form-group">
+                <input name="shares" type="text" class="form-control" id="sharesInput" aria-describedby="stockSharesToBuy" placeholder="Enter number of shares" >
+                <small id="sharesHelp" class="form-text text-muted">Enter the number of shares that you want to buy.</small>
+          </div>
+          <button type="submit" class="btn btn-primary my-2 mx-auto">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Your Stock Quote:
+{% endblock %}
+
+{% block main %}
+    <div class="row justify-content-center">
+        <div class="col-12 mb-2">
+            <h4 id="registerHeading" ><strong>Quote for {{ symbol }}:</strong></h4>
+        </div>
+        <div class="col-12">
+            <p><strong>Name: </strong>{{ name }}</p>
+        </div>
+        <div class="col-12">
+            <p><strong>Price: </strong>{{ price }}</p>
+        </div>
+
+    </div>
+
+{% endblock %}

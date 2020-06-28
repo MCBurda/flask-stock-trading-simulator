@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Find a Stock Quote:
+{% endblock %}
+
+{% block main %}
+    <div class="row justify-content-center">
+        <form action="/quote" method="POST">
+          <div class="col-12 form-group mb-4">
+            <h4 id="registerHeading" ><strong>Find a Stock Quote:</strong></h4>
+          </div>
+          <div class="col-12 form-group">
+              <input name="symbol" type="text" class="form-control" id="stockSymbol" aria-describedby="stockSymbol" placeholder="Enter stock symbol" >
+          </div>
+          <button type="submit" class="btn btn-primary my-2 mx-auto">Submit</button>
+        </form>
+    </div>
+
+{% endblock %}
